@@ -9,7 +9,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="123dp">
 
         <TextView
             android:id="@+id/tv_titulo"
@@ -26,9 +28,9 @@
 
             <TextView
                 android:id="@+id/tv_nome"
-                android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:text="Nome:" />
 
             <EditText
@@ -56,6 +58,26 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_tarefa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tarefa" />
+
+            <EditText
+                android:id="@+id/et_tarefa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Informe a tarefa (verbo)" />
         </LinearLayout>
 
         <LinearLayout
