@@ -16,7 +16,7 @@ import java.sql.Array;
 
 public class TelaConsulta extends AppCompatActivity {
 
-    EditText et_nome, et_telefone;
+    EditText et_nome, et_telefone, et_tarefa;
     Button btn_anterior, btn_proximo, btn_voltar;
 
     SQLiteDatabase db = null;
@@ -30,6 +30,7 @@ public class TelaConsulta extends AppCompatActivity {
 
         et_nome = (EditText) findViewById(R.id.et_nome_consulta);
         et_telefone = (EditText) findViewById(R.id.et_telefone_consulta);
+        et_tarefa = (EditText) findViewById(R.id.et_tarefa_consulta);
         btn_anterior = (Button) findViewById(R.id.btn_anterior);
         btn_proximo = (Button) findViewById(R.id.btn_proximo);
         btn_voltar = (Button) findViewById(R.id.btn_voltar_consulta);
@@ -74,6 +75,7 @@ public class TelaConsulta extends AppCompatActivity {
     public void mostrarDados() {
         et_nome.setText(cursor.getString(cursor.getColumnIndex("nome")));
         et_telefone.setText(cursor.getString(cursor.getColumnIndex("fone")));
+        et_tarefa.setText(cursor.getString(cursor.getColumnIndex("tarefa")));
     }
 
     public void fechar_tela(View v) {

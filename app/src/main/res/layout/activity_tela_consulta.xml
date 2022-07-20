@@ -59,6 +59,25 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_tarefa_consulta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Consulta" />
+
+            <EditText
+                android:id="@+id/et_tarefa_consulta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_marginTop="32dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">

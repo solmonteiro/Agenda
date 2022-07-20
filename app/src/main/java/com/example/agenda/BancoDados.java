@@ -15,33 +15,33 @@ public class BancoDados {
 
     public static void abrirBanco(Activity act) {
         try {
-            ContextWrapper cw=new ContextWrapper(act);
+            ContextWrapper cw = new ContextWrapper(act);
             db = cw.openOrCreateDatabase("bancoAgenda", MODE_PRIVATE, null);
         } catch (Exception ex) {
-            CxMsg.mostrar("Erro ao abrir ou criar banco de dados",act);
+            CxMsg.mostrar("Erro ao abrir ou criar banco de dados", act);
         }
     }
 
-    public static void fecharDB(){
+    public static void fecharDB() {
         db.close();
     }
 
-    public static void abrirOuCriarTabela(Activity act){
+    public static void abrirOuCriarTabela(Activity act) {
         try {
-            db.execSQL("CREATE TABLE IF NOT EXISTS contatos(id INTEGER PRIMARY KEY, nome TEXT,fone TEXT);");
-        }catch(Exception ex){
-            CxMsg.mostrar("Erro ao criar tabela",act);
+            db.execSQL("CREATE TABLE IF NOT EXISTS contatos(id INTEGER PRIMARY KEY, nome TEXT,fone TEXT,tarefa TEXT);");
+        } catch (Exception ex) {
+            CxMsg.mostrar("Erro ao criar tabela", act);
         }
     }
 
-    public static void inserirRegistro(String nome,String fone,Activity act){
+    public static void inserirRegistro(String nome, String fone, String tarefa, Activity act) {
         abrirBanco(act);
         try {
-            db.execSQL("INSERT INTO contatos(nome,fone)VALUES('" + nome + "','" + fone + "')");
-        }catch (Exception ex){
-            CxMsg.mostrar("Erro ao inserir registro",act);
-        }finally{
-            CxMsg.mostrar("Registro inserido com sucesso",act);
+            db.execSQL("INSERT INTO contatos(nome,fone,tarefa)VALUES('" + nome + "','" + fone + "')");
+        } catch (Exception ex) {
+            CxMsg.mostrar("Erro ao inserir registro", act);
+        } finally {
+            CxMsg.mostrar("Registro inserido com sucesso", act);
         }
         fecharDB();
     }
@@ -49,7 +49,7 @@ public class BancoDados {
     public static Cursor buscarTodosDados(Activity act) {
         abrirBanco(act);
         cursor = db.query("contatos",
-                new String[]{"nome", "fone"},
+                new String[]{"nome", "fone", "tarefa"},
                 null,
                 null,
                 null,

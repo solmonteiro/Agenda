@@ -13,7 +13,7 @@ import android.widget.*;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText et_nome, et_telefone;
+    EditText et_nome, et_telefone, et_tarefa;
     Button btn_gravar, btn_consultar, btn_fechar;
 
 
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         et_nome = (EditText) findViewById(R.id.et_nome);
         et_telefone = (EditText) findViewById(R.id.et_telefone);
+        et_tarefa = (EditText) findViewById(R.id.et_tarefa);
         btn_gravar = (Button) findViewById(R.id.btn_gravar);
         btn_consultar = (Button) findViewById(R.id.btn_consultar);
         btn_fechar = (Button) findViewById(R.id.btn_fechar);
@@ -35,19 +36,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void inserirRegistro(View v){
-        String st_nome,st_fone;
-        st_nome=et_nome.getText().toString();
-        st_fone=et_telefone.getText().toString();
-        if(st_nome==""||st_fone==""){
-            CxMsg.mostrar("Campos não podem estar vazios",this);
+    public void inserirRegistro(View v) {
+        String st_nome, st_fone, st_tarefa;
+        st_nome = et_nome.getText().toString();
+        st_fone = et_telefone.getText().toString();
+        st_tarefa = et_tarefa.getText().toString();
+        if (st_nome == "" || st_fone == "" || st_tarefa == "") {
+            CxMsg.mostrar("Campos não podem estar vazios", this);
             return;
         }
 
-        BancoDados.inserirRegistro(st_nome,st_fone,this);
+        BancoDados.inserirRegistro(st_nome, st_fone, st_tarefa, this);
 
         et_nome.setText(null);
         et_telefone.setText(null);
+        et_tarefa.setText(null);
     }
 
     public void abrir_tela_consulta(View v) {
